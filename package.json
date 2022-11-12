@@ -1,0 +1,37 @@
+{
+  "name": "MTL",
+  "displayName": "MTL",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.69.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MTL-lang/MTL-vsc.git"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "mtl",
+        "extensions": [
+          ".mtl"
+        ],
+        "icon": {
+          "light": "./mtl.jpeg",
+          "dark": "./mtl.jpeg"
+        },
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "mtl",
+        "scopeName": "source.mtl",
+        "path": "./syntaxes/mtl.tmLanguage.json"
+      }
+    ]
+  }
+}

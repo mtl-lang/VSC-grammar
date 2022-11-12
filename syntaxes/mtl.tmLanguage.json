@@ -1,0 +1,93 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "MTL",
+  "patterns": [
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#operators"
+    },
+    {
+      "include": "#types"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#local_calls"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [{
+        "name": "keyword.control.mtl",
+        "match": "\\b(const|mut|if|else|while|loop|true|false|expose)\\b"
+      }]
+    },
+    "operators": {
+      "patterns": [{
+        "name": "keyword.operator.arithmetic.mtl",
+        "match": "(\\+|-|\\*|/|%|\\^|!|\\||,|=|>|<|{|}|\\(|\\))"
+      }]
+    },
+    "types": {
+      "name": "support.type.primitive.mtl",
+      "match": " (string|number|boolean|collection|unsafe)"
+    },
+    "numbers": {
+      "name": "constant.numeric.mtl",
+      "match": "(\\d*.?\\d+)"
+    },
+    "strings": {
+      "name": "string.quoted.double.mtl",
+      "begin": "\"",
+      "end": "(\"|$)",
+      "patterns": [
+        {
+          "name": "constant.character.escape.mtl",
+          "match": "\\\\."
+        },
+        {
+          "include": "#local_calls"
+        }
+      ]
+    },
+    "comments": {
+      "name": "comment.line.number-sign.mtl",
+      "begin": "(\\#)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.comment.mtl"
+        }
+      },
+      "end": "($)",
+      "patterns": [
+        {
+          "include": "#codetags"
+        }
+      ]
+    },
+    "local_calls": {
+      "patterns": [{
+        "name": "variable.name.mtl",
+        "match": "@[^(\\.| |\\(|{|}|\\)|,|\")]+"
+      }]
+    },
+    "codetags": {
+      "match": "(?:\\b(NOTE|BUG|TODO|INFO)\\b)",
+      "captures": {
+        "1": {
+          "name": "keyword.codetag.notation.mtl"
+        }
+      }
+    }
+  },
+  "scopeName": "source.mtl"
+}
