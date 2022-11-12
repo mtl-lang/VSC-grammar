@@ -1,3 +1,3 @@
 VSC extension for MTL grammar
 
-<img width="380" alt="Screenshot 2022-07-12 at 5 27 36 PM" src="https://user-images.githubusercontent.com/47159695/178598483-f28d4b99-914a-4f06-b27b-b127660eaba2.png">
+<img width="379" alt="PNG image" src="https://user-images.githubusercontent.com/47159695/201492061-cb731d9d-eec4-48d1-a5a6-7fa090e4174c.png">
