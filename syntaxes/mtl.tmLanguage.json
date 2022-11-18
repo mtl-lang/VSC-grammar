@@ -12,38 +12,51 @@
       "include": "#types"
     },
     {
+      "include": "#local_calls"
+    },
+    {
       "include": "#numbers"
+    },
+    {
+      "include": "#booleans"
     },
     {
       "include": "#strings"
     },
     {
       "include": "#comments"
-    },
-    {
-      "include": "#local_calls"
     }
   ],
   "repository": {
     "keywords": {
       "patterns": [{
         "name": "keyword.control.mtl",
-        "match": "\\b(const|mut|if|else|while|loop|true|false|expose)\\b"
+        "match": "\\b(const|mut|if|unsafe|else|while|loop|expose)\\b"
       }]
     },
     "operators": {
       "patterns": [{
-        "name": "keyword.operator.arithmetic.mtl",
-        "match": "(\\+|-|\\*|/|%|\\^|!|\\||,|=|>|<|{|}|\\(|\\))"
+        "name": "keyword.operator",
+        "match": "(\\+|-|\\*|/|%|\\^|!|\\|=|>|<)"
       }]
     },
     "types": {
       "name": "support.type.primitive.mtl",
-      "match": " (string|number|boolean|collection|unsafe)"
+      "match": " (string|i8|i16|i32|i64|i128|u8|u16|u32|u64|u128|f32|f64|boolean|collection|undefined)"
+    },
+    "local_calls": {
+      "patterns": [{
+        "name": "variable.other.name.mtl",
+        "match": "@[^(\\.| |\\(|{|}|\\)|,|\\]|\")]+"
+      }]
     },
     "numbers": {
       "name": "constant.numeric.mtl",
       "match": "(\\d*.?\\d+)"
+    },
+    "booleans": {
+      "name": "constant.language.boolean.mtl",
+      "match": "\\b(true|false)\\b"
     },
     "strings": {
       "name": "string.quoted.double.mtl",
@@ -53,9 +66,6 @@
         {
           "name": "constant.character.escape.mtl",
           "match": "\\\\."
-        },
-        {
-          "include": "#local_calls"
         }
       ]
     },
@@ -73,12 +83,6 @@
           "include": "#codetags"
         }
       ]
-    },
-    "local_calls": {
-      "patterns": [{
-        "name": "variable.name.mtl",
-        "match": "@[^(\\.| |\\(|{|}|\\)|,|\")]+"
-      }]
     },
     "codetags": {
       "match": "(?:\\b(NOTE|BUG|TODO|INFO)\\b)",
